@@ -2,7 +2,8 @@ public class Student extends Human{
     int id;
     String groupName;
 
-    public Student() {
+    public Student(String name, String lastName, Gender gender) {
+        super(name, lastName, gender);
     }
 
     public Student(String name, String lastName, Gender gender, int id, String groupName) {
