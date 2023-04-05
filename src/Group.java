@@ -1,9 +1,9 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
-public class Group {
+public class Group{
     private String groupName;
     Student[] students = new Student[10];
-
 
 
     public Group(String groupName) {
@@ -44,9 +44,11 @@ public class Group {
         for (int i = 0; i < students.length; i++) {
             if (students[i] == null){
                 students[i] = student;
-            } else {
-                throw new GroupOverflowException();
-            }
+                students[i].setId(i+1);
+                break;
+            } else if (students[students.length-1] != null) {
+               throw new GroupOverflowException();
+              }
         }
     }
 
@@ -79,9 +81,13 @@ public class Group {
 
 
 
+    public void sortStudentsByLastName(){
+        Arrays.sort(students, new SortByLastName());
 
+    }
 
 
 
 
 }
+
