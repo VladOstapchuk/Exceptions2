@@ -121,7 +121,7 @@ public class Group{
 
                 for(;(str=f.readLine())!=null;) {
                     studentdata = str.split(" ");
-                    Student student = new Student(studentdata[1], studentdata[2], Gender.getGenderbyString(studentdata[3]));
+                    Student student = new Student(studentdata[0], studentdata[1], Gender.getGenderbyString(studentdata[2]));
                     try {
                         group.addStudent(student, group.getGroupName());
                     } catch (GroupOverflowException e){
