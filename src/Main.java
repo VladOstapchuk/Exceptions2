@@ -54,6 +54,11 @@ public class Main {
  //       } catch (StudentNotFoundException e) {
  //                   }
 
+        Group VI100 = new Group("VI100");
+        VI100.ReadGroupFromFile(VI100, "GroupVI100.txt");
+
+        System.out.println(VI100.toString());
+
 
 
 

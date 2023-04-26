@@ -112,17 +112,37 @@ public class Group{
 
     //Read group from file
 
-    public void ReadFromFile (Group group, String filename){
+    public void ReadGroupFromFile (Group group, String filename){
+        String[] studentdata = new String[5];
+        String str= "";
 
         try(BufferedReader f =new BufferedReader(new
                 FileReader(filename))){
 
-            String str= "";
-            for(;(str=f.readLine())!=null;)
-                System.out.println(str);
+                for(;(str=f.readLine())!=null;) {
+                    studentdata = str.split(" ");
+                    Student student = new Student(studentdata[1], studentdata[2], Gender.getGenderbyString(studentdata[3]));
+                    try {
+                        group.addStudent(student, group.getGroupName());
+                    } catch (GroupOverflowException e){
+                        System.out.println("This group is full");
+                    }
+                }
+
+
+//                //for (int i = 0; i < 5; i++) {
+//                //    Student student = new Student(studentdata[1], studentdata[2], Gender.getGenderbyString(studentdata[3]), Integer.parseInt(studentdata[4]), studentdata[1]);
+//
+//                    try {
+//                        group.addStudent(student, group.getGroupName());
+//                    } catch (GroupOverflowException e){
+//                        System.out.println("This group is full");
+//                    }
+//
+//                //}
         }
         catch(IOException e){
-            System.out.println("ERROR");
+            System.out.println("ERROR from ReadFromFile method");
         }
 
 
