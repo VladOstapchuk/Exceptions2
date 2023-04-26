@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class Main {
@@ -19,11 +23,11 @@ public class Main {
         Group VI42 = new Group("VI42");
         try {
 
-            VI42.addStudent(student1);
-            VI42.addStudent(student2);
-            VI42.addStudent(student3);
-            VI42.addStudent(student6);
-            VI42.addStudent(student5);
+            VI42.addStudent(student1, "VI42");
+            VI42.addStudent(student2, "VI42");
+            VI42.addStudent(student3,"VI42");
+            VI42.addStudent(student6, "VI42");
+            VI42.addStudent(student5, "VI42");
             //VI42.addStudent(student6);
             //VI42.addStudent(student7);
             //VI42.addStudent(student8);
@@ -42,11 +46,16 @@ public class Main {
 
         System.out.println(VI42.toString());
 
+        VI42.saveGroupToFile(VI42, "NewGroup.txt");
+
 
  //       try {
  //           System.out.println(VI42.searchStudentByLastname("Two").toString());
  //       } catch (StudentNotFoundException e) {
  //                   }
+
+
+
 
 
     }
