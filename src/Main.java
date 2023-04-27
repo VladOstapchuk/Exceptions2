@@ -46,7 +46,7 @@ public class Main {
 
         System.out.println(VI42.toString());
 
-        VI42.saveGroupToFile(VI42, "NewGroup.txt");
+        VI42.saveGroupToFile(VI42, "NewGroup.txt"); // space separated content must be in file
 
 
  //       try {
