@@ -59,7 +59,24 @@ public class Main {
 
         System.out.println(VI100.toString());
 
-        VI100.saveGroupToFile(VI100, "OutGroupVI100.txt");
+//        VI100.saveGroupToFile(VI100, "OutGroupVI100.txt");
+
+
+
+// save group in file with DAO pattern
+        GroupDAO slgd = new SaveLoadGroupDAO();
+        slgd.saveGroup(VI100);
+
+// load group from file with DAO pattern
+        Group VI005 = new Group("VI005");
+        GroupDAO newVI005 = new SaveLoadGroupDAO();
+        VI005 = newVI005.loadGroup(VI005.getGroupName());
+
+        System.out.println(VI005.toString());
+
+
+
+
 
 
 

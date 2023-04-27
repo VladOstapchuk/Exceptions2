@@ -1,0 +1,7 @@
+Group NAME: VI100
+
+1 Alex AOne MALE VI100
+2 Kat CTwo FEMALE VI100
+3 Frank MThree MALE VI100
+4 Jany WFour FEMALE VI100
+5 Kloud Five MALE VI100
