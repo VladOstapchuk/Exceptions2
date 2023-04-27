@@ -40,8 +40,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
+        return  "name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +
                 '}';

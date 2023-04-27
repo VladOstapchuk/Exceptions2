@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -33,14 +34,13 @@ public class Group{
 
     @Override
     public String toString() {
-        return "Group{" +
-                "groupName='" + groupName + '\'' +
+        return  "groupName='" + groupName + '\'' +
                 ", students=" + Arrays.toString(students) +
                 '}';
     }
 
     //метод добавления студента в группу
-    public void addStudent (Student student) throws GroupOverflowException  {
+    public void addStudent (Student student, String groupName) throws GroupOverflowException  {
         for (int i = 0; i < students.length; i++) {
             if (students[i] == null){
                 students[i] = student;
@@ -50,6 +50,7 @@ public class Group{
                throw new GroupOverflowException();
               }
         }
+        student.setGroupName(groupName);
     }
 
     //метод поиска студента по фамилии
@@ -83,6 +84,67 @@ public class Group{
 
     public void sortStudentsByLastName(){
         Arrays.sort(students, new SortByLastName());
+
+    }
+
+    //Write Group into File
+    public void saveGroupToFile (Group group, String filename){
+
+        File file = new File(filename);
+
+        try(PrintWriter f=new PrintWriter(file)){
+            f.println("Group NAME: " + group.getGroupName());
+            f.println();
+
+            for (Student st: group.getStudents()
+            ) {
+                if (st != null) {
+                    f.println(st.getGroupName() + " " + st.getName() + " " + st.getLastName() + " " + st.getGender() + " " + st.getId());
+                }
+            }
+
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+    //Read group from file
+
+    public void ReadGroupFromFile (Group group, String filename){
+        String[] studentdata = new String[5];
+        String str= "";
+
+        try(BufferedReader f =new BufferedReader(new
+                FileReader(filename))){
+
+                for(;(str=f.readLine())!=null;) {
+                    studentdata = str.split(" ");
+                    Student student = new Student(studentdata[0], studentdata[1], Gender.getGenderbyString(studentdata[2]));
+                    try {
+                        group.addStudent(student, group.getGroupName());
+                    } catch (GroupOverflowException e){
+                        System.out.println("This group is full");
+                    }
+                }
+
+
+//                //for (int i = 0; i < 5; i++) {
+//                //    Student student = new Student(studentdata[1], studentdata[2], Gender.getGenderbyString(studentdata[3]), Integer.parseInt(studentdata[4]), studentdata[1]);
+//
+//                    try {
+//                        group.addStudent(student, group.getGroupName());
+//                    } catch (GroupOverflowException e){
+//                        System.out.println("This group is full");
+//                    }
+//
+//                //}
+        }
+        catch(IOException e){
+            System.out.println("ERROR from ReadFromFile method");
+        }
+
 
     }
 

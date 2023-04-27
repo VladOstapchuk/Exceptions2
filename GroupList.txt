@@ -1,0 +1,7 @@
+Group NAME: VI42
+
+VI42 Alex AOne MALE 5
+VI42 Kat CTwo FEMALE 4
+VI42 Alex MOne MALE 3
+VI42 Kat WTwo FEMALE 2
+VI42 Alex Zone MALE 1

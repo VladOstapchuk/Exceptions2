@@ -6,6 +6,8 @@ public class Student extends Human{
         super(name, lastName, gender);
     }
 
+
+
     public Student(String name, String lastName, Gender gender, int id, String groupName) {
         super(name, lastName, gender);
         this.id = id;
