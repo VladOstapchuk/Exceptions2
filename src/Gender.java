@@ -13,8 +13,8 @@ public enum Gender {
     }
 
     public static Gender getGenderbyString(String str) {
-        for (Gender gnd : values()) {
-            if (gnd.getGender().equals(str)) {
+            for (Gender gnd : values()) {
+            if (gnd.getGender().equals(str.toUpperCase())) {
                 return gnd;
             }
         }
