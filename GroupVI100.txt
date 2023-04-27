@@ -1,5 +1,5 @@
-Alex AOne male
-Kat CTwo FEMALE
-Frank MThree MALE
+Alex AOne MALE
+Kat CTwo female
+Frank MThree male
 Jany WFour FEMALE
-Kloud Five MALE
+Kloud Five male

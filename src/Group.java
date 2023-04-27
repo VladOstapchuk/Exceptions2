@@ -99,7 +99,7 @@ public class Group{
             for (Student st: group.getStudents()
             ) {
                 if (st != null) {
-                    f.println(st.getGroupName() + " " + st.getName() + " " + st.getLastName() + " " + st.getGender() + " " + st.getId());
+                    f.println(st.getId() + " " + st.getName() + " " + st.getLastName() + " " + st.getGender() + " " + st.getGroupName());
                 }
             }
 

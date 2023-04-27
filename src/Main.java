@@ -59,6 +59,8 @@ public class Main {
 
         System.out.println(VI100.toString());
 
+        VI100.saveGroupToFile(VI100, "OutGroupVI100.txt");
+
 
 
 
